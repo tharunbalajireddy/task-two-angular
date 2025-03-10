@@ -1,0 +1,27 @@
+.city-line {
+  padding: 5px;
+  border-bottom: 1px solid #ddd;
+
+  .icon-buttons {
+    display: flex;
+    gap: 10px;
+  }
+
+  .icon {
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #007bff;
+
+    &.refresh:hover {
+      color: #28a745;
+    }
+
+    &.delete {
+      scale: 1.25;
+
+      :hover {
+        color: #dc3545;
+      }
+    }
+  }
+}

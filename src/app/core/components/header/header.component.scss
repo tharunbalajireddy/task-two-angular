@@ -1,0 +1,47 @@
+header {
+  background-color: #007bff;
+  padding: 10px 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar-nav {
+  list-style: none;
+  display: flex;
+  gap: 200px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 24px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  transform-origin: center;
+}
+
+.badge {
+  background-color: #6c757d;
+  color: #ffffff;
+  border-radius: 50%;
+  padding: 5px 10px;
+  margin-left: 10px;
+}
+
+.nav-link.active {
+  transform: scale(1.05);
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  font-weight: bold;
+}

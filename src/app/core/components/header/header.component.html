@@ -1,0 +1,45 @@
+<header class="bg-primary">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid justify-content-start">
+      <!-- Brand and Logo -->
+      <a class="navbar-brand d-flex align-items-center text-light" href="#">
+        <img
+          width="40"
+          class="me-2"
+          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
+          alt="Angular Logo"
+        />
+        <span>Task Two</span>
+      </a>
+
+      <!-- Primary Navigation Menu -->
+      <div id="main-navbar">
+        <ul class="navbar-nav gap-30 ps-5">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="/counter"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+            >
+              Counter App
+              <span class="badge bg-secondary ms-1">{{
+                countersCount$ | async
+              }}</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="/vatavaran"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+            >
+              Weather App
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

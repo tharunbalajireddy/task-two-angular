@@ -1,0 +1,151 @@
+.weather-container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  min-height: 400px;
+}
+
+.left-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+
+  .input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .form-control {
+      flex: 1;
+    }
+
+    .add-icon {
+      cursor: pointer;
+      font-size: 1.8rem;
+      color: #007bff;
+      transition: transform 0.2s ease, color 0.2s ease;
+
+      &:hover {
+        transform: scale(1.2);
+        color: #0056b3;
+      }
+    }
+  }
+
+  .clear-section {
+    text-align: right;
+  }
+}
+
+.right-panel {
+  flex: 2;
+  border-left: 3px solid #dee2e6;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+
+  /* Header Section */
+  .rp-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .city-name {
+      margin-left: 10px;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .refresh-icon {
+      margin-right: 10px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #007bff;
+      }
+    }
+  }
+
+  .rp-main {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .weather-icon-container {
+      flex: 0 0 30%;
+
+      img.big-weather-icon {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .weather-details {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 1.2rem;
+      text-transform: capitalize;
+    }
+  }
+
+  .rp-forecast {
+    display: flex;
+    justify-content: space-evenly;
+
+    .forecast-day {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+
+      .fd-date {
+        font-size: 1rem;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      .fd-icon {
+        width: 40px;
+        height: 40px;
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      .fd-temp {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .suggestions {
+    padding: 20px;
+    font-size: 1.1rem;
+    color: #666;
+
+    p {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    i {
+      font-size: 1.3rem;
+      color: #007bff;
+    }
+  }
+}

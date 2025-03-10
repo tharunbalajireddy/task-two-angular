@@ -1,0 +1,18 @@
+<div class="counter-app-container">
+  <div class="controls m-3">
+    <button class="btn btn-warning me-4" (click)="resetCounters()">
+      Reset
+    </button>
+    <button class="btn btn-success" (click)="addCounter()">Add</button>
+  </div>
+
+  <div class="counters-list ms-2">
+    <app-counter-line
+      *ngFor="let counter of counters$ | async"
+      [counter]="counter"
+      (increment)="onIncrement($event)"
+      (decrement)="onDecrement($event)"
+      (delete)="onDelete($event)"
+    ></app-counter-line>
+  </div>
+</div>

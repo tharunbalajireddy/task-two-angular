@@ -1,0 +1,103 @@
+<div class="weather-container">
+  <!-- Left Panel: City Input, Recent Locations, and Clear Button -->
+  <div class="left-panel">
+    <div class="weather-locations">
+      <div class="input-group">
+        <input
+          type="text"
+          [formControl]="cityInput"
+          placeholder="Type city name"
+          class="form-control"
+          (keydown.enter)="addCity()"
+        />
+        <span class="add-icon" (click)="addCity()">
+          <i class="fas fa-plus"></i>
+        </span>
+      </div>
+      <div *ngIf="error$ | async as error" class="alert alert-danger mt-2">
+        {{ error }}
+      </div>
+      <h5 class="mt-3">Recent Locations</h5>
+      <ul class="list-group">
+        <li
+          *ngFor="let city of recentLocations$ | async"
+          class="list-group-item"
+        >
+          <app-weather-location-line
+            [cityWeather]="city"
+            (refresh)="refreshCity($event)"
+            (remove)="removeCity($event)"
+            (selectCity)="selectCity($event)"
+          ></app-weather-location-line>
+        </li>
+      </ul>
+    </div>
+    <div class="clear-section">
+      <button class="btn btn-danger" (click)="clearCities()">Clear</button>
+    </div>
+  </div>
+
+  <!-- Right Panel: Display selected city's current weather info and forecast summary -->
+  <div class="right-panel">
+    <ng-container
+      *ngIf="currentWeather$ | async as current; else suggestionTemplate"
+    >
+      <div class="rp-header">
+        <div class="city-name">{{ current.cityName }}</div>
+        <div class="refresh-icon" (click)="refreshForecast()">
+          <i class="fa fa-sync-alt"></i>
+        </div>
+      </div>
+
+      <div class="rp-main">
+        <div class="weather-icon-container">
+          <img
+            [src]="current.icon"
+            alt="Weather Icon"
+            class="big-weather-icon"
+          />
+        </div>
+        <div class="weather-details">
+          <div class="weather-param temperature">
+            {{ current.temperature }}°C
+          </div>
+          <div class="weather-param main">
+            {{ current.weatherStatus | titlecase }}
+          </div>
+          <div class="weather-param wind">
+            Wind {{ current.windSpeed }}ms {{ current.windDeg }} deg
+          </div>
+          <div class="weather-param pressure">
+            Pressure {{ current.pressure }}
+          </div>
+        </div>
+      </div>
+
+      <div class="rp-forecast" *ngIf="selectedForecast$ | async as forecast">
+        <div class="forecast-day" *ngFor="let day of forecast.forecast">
+          <span class="fd-date"
+            >{{ day.date }} <br />
+            {{ day.day }}</span
+          >
+          <div class="fd-icon">
+            <img [src]="day.icon" alt="{{ day.day }} icon" />
+          </div>
+          <div class="fd-temp">{{ day.temperature }}°C</div>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-template #suggestionTemplate>
+      <div class="suggestions">
+        <p>
+          <i class="fas fa-info-circle"></i>
+          Select a city from the list to view detailed forecast.
+        </p>
+        <p>
+          <i class="fas fa-bolt"></i>
+          Or add a new city using the input on the left.
+        </p>
+      </div>
+    </ng-template>
+  </div>
+</div>

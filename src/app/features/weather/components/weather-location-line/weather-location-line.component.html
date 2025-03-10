@@ -1,0 +1,15 @@
+<div class="city-line d-flex justify-content-between align-items-center">
+  <div (click)="onSelect()" style="cursor: pointer">
+    <strong>{{ cityWeather.cityName }}</strong> -
+    {{ cityWeather.temperature }}°C, {{ cityWeather.weatherStatus }}
+    <img *ngIf="cityWeather.icon" [src]="cityWeather.icon" alt="icon" />
+  </div>
+  <div class="icon-buttons">
+    <span class="icon refresh" (click)="onRefresh()">
+      <i class="fas fa-sync-alt"></i>
+    </span>
+    <span class="icon delete" (click)="onRemove()">
+      <i class="fas fa-xmark"></i>
+    </span>
+  </div>
+</div>
